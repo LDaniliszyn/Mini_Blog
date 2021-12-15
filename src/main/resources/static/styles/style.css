@@ -1,0 +1,14 @@
+h1{
+    color: gray;
+    position: relative;
+    margin-left:  48%;
+}
+.btn{
+    color: gray;
+    position: relative;
+    margin-left:  50%;
+}
+.btn-primary{
+    color: gray;
+    background-color: white;
+}
