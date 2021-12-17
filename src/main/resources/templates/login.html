@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="~{fragments/imports :: head}"></th:block>
     <meta charset="UTF-8">
@@ -8,12 +8,22 @@
 <body>
 
 <div class="container">
+    <form action="/home">
+        <button class="btn btn-primary">
+            home
+        </button>
+    </form>
+    <form action="/register">
+        <button class="btn btn-primary">
+            register
+        </button>
+    </form>
     <form action="/login-process" method="POST">
               <div class="input-group mb-3">
             <input id="email" name="email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-            <input id="password" name="email" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+            <input id="password" name="password" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
         </div>
         <button class="btn btn-outline-primary">
             Submit

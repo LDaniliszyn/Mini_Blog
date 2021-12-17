@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="~{fragments/imports :: head}"></th:block>
     <meta charset="UTF-8">
@@ -8,6 +8,16 @@
 <body>
 
 <div class="container">
+    <form action="/home">
+        <button class="btn btn-primary">
+            home
+        </button>
+    </form>
+    <form action="/login-page">
+        <button class="btn btn-primary">
+            login
+        </button>
+    </form>
     <form th:action="@{/register}" th:method="POST" th:object="${userRegisterForm}">
     <div class="input-group mb-3">
         <input id="firstName" th:field="*{firstName}" type="text" class="form-control" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
@@ -24,8 +34,8 @@
         <button class="btn btn-outline-primary">
             Submit
         </button>
-
     </form>
+
 </div>
 
 </body>
