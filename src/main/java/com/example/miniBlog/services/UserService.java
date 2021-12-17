@@ -21,8 +21,8 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private static final String ROLE_USER = "ROLE_USER";
 
-    private void setOrCreateDefaultRole(final UserEntity userEntity){
-        RoleEntity roleEntity = roleRepository.findByRoleName(ROLE_USER).orElseGet(() -> roleRepository.save(new RoleEntity(ROLE_USER)));
+    private void setOrCreateDefaultRole(final UserEntity userEntity) {
+        final RoleEntity roleEntity = roleRepository.findByRoleName(ROLE_USER).orElseGet(() -> roleRepository.save(new RoleEntity(ROLE_USER)));
         userEntity.addToRoleSet(roleEntity);
     }
 
@@ -36,7 +36,7 @@ public class UserService {
                 .createDate(LocalDate.now())
                 .build();
         setOrCreateDefaultRole(userEntity);
-        log.info("save user\n{}",userEntity );
+        log.info("save user\n{}", userEntity);
         userRepository.save(userEntity);
     }
 }
