@@ -37,7 +37,6 @@ public class UserController {
     public String registerUser(@ModelAttribute UserRegisterForm userRegisterForm){
         log.info("register user: {}",userRegisterForm);
         userService.registerUser(userRegisterForm);
-
         return "registerForm";
     }
     @GetMapping("/loginpage")
