@@ -1,9 +1,7 @@
 package com.example.miniBlog.controllers;
 
-import com.example.miniBlog.model.entity.UserEntity;
 import com.example.miniBlog.model.form.UserRegisterForm;
 import com.example.miniBlog.services.UserService;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,14 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Set;
-
 @Slf4j
 @Controller
 
 public class UserController {
     UserService userService;
     PasswordEncoder passwordEncoder;
+
     @Autowired
     public UserController(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
@@ -28,21 +25,20 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    public String register(Model model){
-        model.addAttribute("userRegisterForm",new UserRegisterForm());
+    public String register(Model model) {
+        model.addAttribute("userRegisterForm", new UserRegisterForm());
         return "registerForm";
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute UserRegisterForm userRegisterForm){
-        log.info("register user: {}",userRegisterForm);
+    public String registerUser(@ModelAttribute UserRegisterForm userRegisterForm) {
+        log.info("register user: {}", userRegisterForm);
         userService.registerUser(userRegisterForm);
-        return "registerForm";
+        return "home";
     }
-    @GetMapping("/loginpage")
-    public String getLoginPage(){
+
+    @GetMapping("/login-page")
+    public String getLoginPage() {
         return "login";
     }
-
-
 }

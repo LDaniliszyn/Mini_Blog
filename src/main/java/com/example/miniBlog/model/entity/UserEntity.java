@@ -28,8 +28,8 @@ public class UserEntity extends BaseEntity {
     @OneToMany(mappedBy = "author")
     private List<PostEntity> postEntities;
 
-    public void addToRoleSet(RoleEntity roleEntity){
-        if (roleSet == null){
+    public void addToRoleSet(RoleEntity roleEntity) {
+        if (roleSet == null) {
             roleSet = new HashSet<>();
         }
         roleSet.add(roleEntity);
