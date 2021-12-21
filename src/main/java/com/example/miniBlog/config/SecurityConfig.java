@@ -24,12 +24,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("SELECT u.email,u.password,true FROM USER u WHERE u.email=?")
                 .authoritiesByUsernameQuery(" SELECT u.email,r.role_name FROM USER u JOIN USER_ROLE ur ON u.id = ur.user_entity_id JOIN role r ON ur.role_set_id = r.id WHERE u.email=?")
                 .passwordEncoder(passwordEncoder);
-
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().permitAll()
+        http.authorizeRequests().antMatchers("/add-post").hasAnyRole("USER")
+                .anyRequest()
+                .permitAll()
                 .and()
                 .csrf()
                 .disable()
@@ -38,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sameOrigin()
                 .and()
                 .formLogin()
-                .loginPage("/loginpage")
+                .loginPage("/login-page")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .loginProcessingUrl("/login-process")

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/imports :: head}"></th:block>
+    <meta charset="UTF-8">
+    <title>mini blog application created</title>
+</head>
+<body>
+<nav class="navbar sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+        <form action="/home">
+            <button class="btn btn-outline-success" type="submit">Home</button>
+        </form>
+        <p th:if="${@userContextService.getLoggedName()}" th:text="${@userContextService.getLoggedName()}"></p>
+    </div>
+</nav>
+<h1>
+    created
+</h1>
+
+
+</body>
+</html>
