@@ -25,8 +25,10 @@ public class UserEntity extends BaseEntity {
     private Set<RoleEntity> roleSet;
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+
     @OneToMany(mappedBy = "author")
     private List<PostEntity> postEntities;
+
 
     public void addToRoleSet(RoleEntity roleEntity) {
         if (roleSet == null) {

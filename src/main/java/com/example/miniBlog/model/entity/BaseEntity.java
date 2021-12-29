@@ -2,6 +2,7 @@ package com.example.miniBlog.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @MappedSuperclass
 @SuperBuilder
 @AllArgsConstructor
+@Getter
 
 public abstract class BaseEntity {
     @Id

@@ -6,9 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.dom4j.rule.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,4 +26,11 @@ public class PostController {
         postService.publishNewPost(postForm);
         return "created";
     }
+
+    @GetMapping("/get-post/{id}")
+    public String getPost(@PathVariable Long id, Model model){
+        model.addAttribute("post",postService.getPost(id));
+        return "post";
+    }
+
 }

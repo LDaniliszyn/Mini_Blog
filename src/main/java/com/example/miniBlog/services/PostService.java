@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,5 +30,13 @@ public class PostService {
                 .build();
         postRepository.saveAndFlush(post);
         return true;
+    }
+
+    public List<PostEntity> getPosts(){
+        List<PostEntity> all = postRepository.findAll();
+        return all;
+    }
+    public PostEntity getPost(Long id){
+        return postRepository.getById(id);
     }
 }

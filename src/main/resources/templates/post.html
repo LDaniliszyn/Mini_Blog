@@ -3,38 +3,33 @@
 <head>
     <th:block th:replace="~{fragments/imports :: head}"></th:block>
     <meta charset="UTF-8">
-    <title>mini blog application home page</title>
+    <title>add post</title>
 </head>
 <body>
 <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
-
-        <form action="/login-page">
-            <button class="btn btn-outline-success" type="submit">Login</button>
+        <form action="/home">
+            <button class="btn btn-primary">
+                home
+            </button>
         </form>
-
-        <form action="/register">
-            <button class="btn btn-outline-success" type="submit">Register</button>
-        </form>
-
-        <form action="/add-post">
-            <button class="btn btn-outline-success" type="submit">Add_post</button>
-        </form>
-
         <p th:if="${@userContextService.getLoggedName()}" th:text="${@userContextService.getLoggedName()}"></p>
     </div>
 </nav>
 
 <div class="accordion" id="accordionExample">
-    <a th:each="post: ${posts}">
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <a th:href="@{'/get-post/'+${post.id}}" class="link-primary"th:text="${post.getTitle()}"></a>
+                <div  th:text="${post.getTitle()}" />
             </button>
         </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div th:text="${post.getContent()}" />
+            </div>
+        </div>
     </div>
-    </a>
 </div>
 
 </body>
