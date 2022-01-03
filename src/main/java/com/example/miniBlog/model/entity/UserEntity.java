@@ -23,9 +23,9 @@ public class UserEntity extends BaseEntity {
     @OneToMany
     @JoinTable(name = "USER_ROLE")
     private Set<RoleEntity> roleSet;
+
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-
     @OneToMany(mappedBy = "author")
     private List<PostEntity> postEntities;
 

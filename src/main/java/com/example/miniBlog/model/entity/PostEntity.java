@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
 import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -23,6 +23,11 @@ public class PostEntity extends BaseEntity {
     @ManyToOne
     private UserEntity author;
 
+    @OneToMany
+    public List<CommentEntity> comment;
 
+    public void addComment(CommentEntity commentEntity) {
+        comment.add(commentEntity);
+    }
 
 }

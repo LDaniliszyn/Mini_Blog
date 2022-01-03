@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserContextService {
-    public String getLoggedName(){
+    public String getLoggedName() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication instanceof AnonymousAuthenticationToken){
+        if (authentication instanceof AnonymousAuthenticationToken) {
             return StringUtils.EMPTY;
         }
         return authentication.getName();

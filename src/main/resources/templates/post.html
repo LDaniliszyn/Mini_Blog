@@ -32,5 +32,30 @@
     </div>
 </div>
 
+<div class="accordion" id="accordionExample">
+    <a th:each="comment: ${comments}">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <a th:href="@{'/get-post/'+${post.id}}" class="link-primary"th:text="${post.getTitle()}"></a>
+                </button>
+            </h2>
+        </div>
+    </a>
+</div>
+
+
+<form th:action="@{/add-comment}" th:method="POST" th:object="${newComment}">
+    <div class="input-group mb-3">
+        <input type="hidden" th:value="${post.id}" name="postId"/>
+        <input th:field="*{content}" type="text" class="form-control" placeholder="Title" aria-label="Comment Content" aria-describedby="basic-addon1">
+    </div>
+
+    <form class="d-flex">
+        <button class="btn btn-outline-success" type="submit">Add comment</button>
+    </form>
+</form>
+
+
 </body>
 </html>
