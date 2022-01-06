@@ -20,8 +20,18 @@ public class UserEntity extends BaseEntity {
     private String email;
     private String password;
 
-    @OneToMany
+
+    //@OneToMany
+    //@JoinTable(name = "USER_ROLE")
+
+    @ManyToMany//(cascade = {CascadeType.ALL})
     @JoinTable(name = "USER_ROLE")
+//    @JoinTable(
+//            name = "USER_ROLE",
+//            joinColumns = { @JoinColumn(name = "user_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "role_id") }
+//    )
+
     private Set<RoleEntity> roleSet;
 
     @EqualsAndHashCode.Exclude

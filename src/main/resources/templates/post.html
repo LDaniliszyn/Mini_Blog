@@ -32,16 +32,16 @@
     </div>
 </div>
 
-<div class="accordion" id="accordionExample">
-    <a th:each="comment: ${comments}">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <a th:href="@{'/get-post/'+${post.id}}" class="link-primary"th:text="${post.getTitle()}"></a>
-                </button>
-            </h2>
-        </div>
-    </a>
+<!--<div class="accordion" id="accordionExample">-->
+<!--    <a th:each="comment: ${comments}">-->
+<!--        <div class="accordion-item">-->
+<!--            <h2 class="accordion-header" id="headingOne">-->
+<!--                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
+<!--                    <a th:href="@{'/get-post/'+${post.id}}" class="link-primary"th:text="${post.getTitle()}"></a>-->
+<!--                </button>-->
+<!--            </h2>-->
+<!--        </div>-->
+<!--    </a>-->
 </div>
 
 
