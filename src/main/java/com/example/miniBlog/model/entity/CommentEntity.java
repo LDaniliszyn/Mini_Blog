@@ -21,5 +21,4 @@ public class CommentEntity extends BaseEntity {
 
     @ManyToOne
     private UserEntity author;
-
 }
