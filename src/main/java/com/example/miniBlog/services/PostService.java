@@ -1,5 +1,6 @@
 package com.example.miniBlog.services;
 
+import com.example.miniBlog.model.entity.CommentEntity;
 import com.example.miniBlog.model.entity.PostEntity;
 import com.example.miniBlog.model.entity.UserEntity;
 import com.example.miniBlog.model.form.PostForm;
@@ -41,4 +42,9 @@ public class PostService {
     public PostEntity getPost(Long id) {
         return postRepository.getById(id);
     }
+
+    public List<CommentEntity> getComments(Long id){
+        return postRepository.getById(id).getComment();
+    }
+
 }
