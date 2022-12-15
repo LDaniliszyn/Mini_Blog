@@ -1,14 +1,21 @@
 h1{
     color: gray;
-    position: relative;
-    margin-left:  48%;
 }
-.btn{
-    color: gray;
-    position: relative;
-    margin-left:  50%;
+form{
+    margin-left: 20px;
 }
-.btn-primary{
-    color: gray;
-    background-color: white;
+
+.wrapper{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 155px;
+}
+.custom-nav{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-section{
+    display: flex;
+    flex-direction: row;
 }

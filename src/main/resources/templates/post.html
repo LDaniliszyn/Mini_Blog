@@ -17,18 +17,20 @@
     </div>
 </nav>
 
-<div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                <div th:text="${post.getTitle()}"/>
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-             data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <div th:text="${post.getContent()}"/>
+<div class="wrapper">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    <div th:text="${post.getTitle()}"/>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div th:text="${post.getContent()}"/>
+                </div>
             </div>
         </div>
     </div>
@@ -47,7 +49,7 @@
     <div class="flex-content" th:each="comment: ${comments}">
         <p th:text="${comment.getContent()}"></p>
     </div>
- 
+
 
     <form class="d-flex">
         <button class="btn btn-outline-success" type="submit">Add comment</button>
