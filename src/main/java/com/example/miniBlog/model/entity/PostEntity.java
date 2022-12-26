@@ -18,6 +18,7 @@ import java.util.List;
 @Table(name = "POST")
 public class PostEntity extends BaseEntity {
     private String title;
+    @Column(columnDefinition = "text")
     private String content;
 
     @ManyToOne

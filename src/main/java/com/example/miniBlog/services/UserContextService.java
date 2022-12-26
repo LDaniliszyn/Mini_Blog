@@ -16,4 +16,11 @@ public class UserContextService {
         return authentication.getName();
     }
 
+    public boolean isLogged(){
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication instanceof AnonymousAuthenticationToken) {
+            return false;
+        }
+        return true;
+    }
 }
