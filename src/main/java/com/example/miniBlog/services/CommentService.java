@@ -37,6 +37,7 @@ public class CommentService {
         commentRepository.saveAndFlush(comment);
 
         postEntity.addComment(comment);
+
         postRepository.save(postEntity);
         return true;
     }

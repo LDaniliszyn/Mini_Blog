@@ -6,30 +6,25 @@
     <title>Login</title>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-light bg-light">
-    <div class="container-fluid">
-        <form action="/home">
-            <button class="btn btn-outline-success" type="submit">Home</button>
-        </form>
-        <form action="/register">
-            <button class="btn btn-outline-success" type="submit">Register</button>
-        </form>
-        <p th:if="${@userContextService.getLoggedName()}" th:text="${@userContextService.getLoggedName()}"></p>
-    </div>
-</nav>
-<div class="container">
-    <form action="/login-process" method="POST">
-              <div class="input-group mb-3">
-            <input id="email" name="email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <input id="password" name="password" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-        </div>
-        <form class="d-flex">
-            <button class="btn btn-outline-success" type="submit">Submit</button>
-        </form>
+<div th:replace="fragments/imports :: navbar" />
 
-    </form>
+<div class="wrapper">
+    <div class="h-100 p-3 bg-light border rounded-5 my-2">
+        <form action="/login-process" method="POST">
+            <div class="input-group mb-3">
+                <input id="email" name="email" type="text" class="form-control" placeholder="Email" aria-label="Email"
+                       aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input id="password" name="password" type="text" class="form-control" placeholder="Password"
+                       aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            <form class="d-flex">
+                <button class="btn btn-outline-secondary" type="submit">Submit</button>
+            </form>
+
+        </form>
+    </div>
 </div>
 
 </body>

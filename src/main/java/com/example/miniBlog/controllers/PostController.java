@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -24,9 +25,9 @@ public class PostController {
     }
 
     @PostMapping("/add-post")
-    public String publishPost(@ModelAttribute PostForm postForm) {
+    public ModelAndView publishPost(@ModelAttribute PostForm postForm) {
         postService.publishNewPost(postForm);
-        return "created";
+        return new ModelAndView("redirect:/home");
     }
 
     @GetMapping("/get-post/{id}")

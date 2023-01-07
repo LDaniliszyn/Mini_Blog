@@ -1,15 +1,10 @@
 h1{
     color: gray;
 }
-form{
-    margin-left: 20px;
-}
-
 .wrapper{
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 155px;
 }
 .custom-nav{
     display: flex;

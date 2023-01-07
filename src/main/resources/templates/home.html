@@ -6,58 +6,18 @@
     <title>mini blog application home page</title>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-light bg-light">
-    <div class="container-fluid custom-nav">
 
-        <div class="nav-section">
-            <form action="/add-post">
-                <button class="btn btn-outline-success" type="submit">Add post</button>
-            </form>
 
-            <form action="/">
-                <button class="btn btn-outline-success" type="submit">Mini blog</button>
-            </form>
-        </div>
-        <div class="nav-section">
-        <p th:if="${@userContextService.isLogged()}" th:text="${@userContextService.getLoggedName()}"></p>
-            <form th:if="${!@userContextService.isLogged()}" action="/login-page">
-                <button class="btn btn-outline-success" type="submit">Login</button>
-            </form>
-
-            <form th:if="${@userContextService.isLogged()}" action="/logout">
-                <button class="btn btn-outline-success" type="submit">Logout</button>
-            </form>
-
-            <form th:if="${!@userContextService.isLogged()}" action="/register">
-                <button class="btn btn-outline-success" type="submit">Register</button>
-            </form>
-        </div>
-    </div>
-</nav>
-
+<div th:replace="fragments/imports :: navbar" />
 
 <div class="wrapper">
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item" th:each="post: ${posts}">
-            <h2 class="accordion-header" th:id="@{'postheader'+${post.id}}">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        th:data-bs-target="@{'#postbody'+${post.id}}" aria-expanded="true" aria-controls="collapseOne">
-                    <a th:href="@{'/get-post/'+${post.id}}" class="link-primary" th:text="${post.getTitle()}"></a>
-                </button>
-            </h2>
-            <div th:id="@{'postbody'+${post.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                 data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <a th:href="@{'/get-post/'+${post.id}}" class="link-primary" th:text="${post.getContent()}"></a>
-                </div>
-            </div>
+    <div class="h-100 p-4 bg-light border rounded-5 my-2  " th:each="post: ${posts}">
+        <div class="d-flex justify-content-center">
+            <a th:href="@{'/get-post/'+${post.id}}" class="btn btn-outline-secondary" role="button">
+                <h4 th:text="${post.title}"></h4>
+                <p th:text="${post.content}"></p>
+            </a>
         </div>
-    </div>
-    <hr/>
-    <div class="h-100 p-5 bg-light border rounded-5 my-2" th:each="post: ${posts}">
-        <h2 th:text="${post.title}"></h2>
-        <p th:text="${post.content}"></p>
-
     </div>
 </div>
 

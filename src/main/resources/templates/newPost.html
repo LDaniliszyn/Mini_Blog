@@ -6,30 +6,28 @@
     <title>add post</title>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-light bg-light">
-    <div class="container-fluid">
-        <form action="/home">
-            <button class="btn btn-primary">
-                home
-            </button>
+
+<div th:replace="fragments/imports :: navbar" />
+
+<div class="wrapper">
+    <div class="h-100 p-3 bg-light border rounded-5 my-2">
+        <form th:action="@{/add-post}" th:method="POST" th:object="${newPost}">
+
+            <div class="input-group mb-3">
+                <input th:field="*{title}" type="text" class="form-control" placeholder="Title" aria-label="Title"
+                       aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3">
+            <textarea th:field="*{content}" class="form-control" placeholder="Content" aria-label="Content"
+                      aria-describedby="basic-addon1"></textarea>
+            </div>
+
+            <form class="d-flex">
+                <button class="btn btn-outline-secondary" type="submit">Publish post</button>
+            </form>
         </form>
-        <p th:if="${@userContextService.getLoggedName()}" th:text="${@userContextService.getLoggedName()}"></p>
     </div>
-</nav>
-
-<form th:action="@{/add-post}" th:method="POST" th:object="${newPost}">
-
-    <div class="input-group mb-3">
-        <input th:field="*{title}" type="text" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1">
-    </div>
-
-    <div class="input-group mb-3">
-        <textarea th:field="*{content}" class="form-control" placeholder="Content" aria-label="Content" aria-describedby="basic-addon1"></textarea>
-    </div>
-
-    <form class="d-flex">
-        <button class="btn btn-outline-success" type="submit">Publish post</button>
-    </form>
-</form>
+</div>
 </body>
 </html>

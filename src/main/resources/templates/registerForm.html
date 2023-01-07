@@ -6,37 +6,34 @@
     <title>Register</title>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-light bg-light">
-    <div class="container-fluid">
-        <form action="/login-page">
-            <button class="btn btn-outline-success" type="submit">Login</button>
-        </form>
-        <form action="/home">
-            <button class="btn btn-outline-success" type="submit">Home</button>
-        </form>
-        <p th:if="${@userContextService.getLoggedName()}" th:text="${@userContextService.getLoggedName()}"></p>
-    </div>
-</nav>
-<div class="container">
 
-    <form th:action="@{/register}" th:method="POST" th:object="${userRegisterForm}">
-    <div class="input-group mb-3">
-        <input id="firstName" th:field="*{firstName}" type="text" class="form-control" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3">
-        <input id="lastName"th:field="*{lastName}" type="text" class="form-control" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3">
-        <input id="email" th:field="*{email}" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3">
-        <input id="password" th:field="*{password}" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-    </div>
-        <form class="d-flex">
-            <button class="btn btn-outline-success" type="submit">Submit</button>
-        </form>
-    </form>
+<div th:replace="fragments/imports :: navbar" />
 
+
+<div class="wrapper">
+    <div class="h-100 p-3 bg-light border rounded-5 my-2">
+        <form th:action="@{/register}" th:method="POST" th:object="${userRegisterForm}">
+            <div class="input-group mb-3">
+                <input id="firstName" th:field="*{firstName}" type="text" class="form-control" placeholder="First Name"
+                       aria-label="First Name" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input id="lastName" th:field="*{lastName}" type="text" class="form-control" placeholder="Last Name"
+                       aria-label="Last Name" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input id="email" th:field="*{email}" type="text" class="form-control" placeholder="Email"
+                       aria-label="Email" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input id="password" th:field="*{password}" type="text" class="form-control" placeholder="Password"
+                       aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            <form class="d-flex">
+                <button class="btn btn-outline-secondary" type="submit">Submit</button>
+            </form>
+        </form>
+    </div>
 </div>
 
 </body>

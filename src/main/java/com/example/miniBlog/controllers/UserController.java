@@ -13,14 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @Controller
-// @RequestMapping(path = "/user") - doda user /
 public class UserController {
     UserService userService;
     PasswordEncoder passwordEncoder;
@@ -38,10 +37,10 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute UserRegisterForm userRegisterForm) {
+    public ModelAndView registerUser(@ModelAttribute UserRegisterForm userRegisterForm) {
         log.info("register user: {}", userRegisterForm);
         userService.registerUser(userRegisterForm);
-        return "home";
+        return new ModelAndView("redirect:/login-page");
     }
 
     @GetMapping("/login-page")
@@ -50,11 +49,15 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logoutPage(final HttpServletRequest request, final HttpServletResponse response) {
+    public ModelAndView logoutPage(final HttpServletRequest request, final HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "home";
+        return new ModelAndView("redirect:/home");    }
+
+    @GetMapping("/user")
+    public String userPage(){
+        return "user";
     }
 }
