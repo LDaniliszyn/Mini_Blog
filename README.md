@@ -11,7 +11,7 @@ Prerequisites
 -MySQL
 
 Installing
--Clone the repository: git clone https://github.com/your_username/miniBlog.git
+-Clone the repository: git clone https://github.com/LDaniliszyn/Mini_Blog.git
 -Import the project into your preferred IDE
 -Set up a MySQL database and update the connection details in src/main/resources/application.properties
 -Run the project as a Spring Boot app or build the project with Maven: mvn clean install
