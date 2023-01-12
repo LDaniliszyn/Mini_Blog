@@ -6,23 +6,11 @@ h1{
     margin-left: auto;
     margin-right: auto;
 }
-
-.navbar {
-  background-color: #222;
+.custom-nav{
+    display: flex;
+    justify-content: space-between;
 }
-
-.navbar-brand {
-  color: #fff;
-  font-size: 24px;
-}
-
-.nav-link {
-  color: #fff;
-  font-size: 18px;
-}
-
-.nav-link:hover {
-  color: #eee;
-}
-
+.nav-section{
+    display: flex;
+    flex-direction: row;
 }
