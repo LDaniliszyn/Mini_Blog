@@ -14,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequiredArgsConstructor
 public class PostController {
-    final PostService postService;
-    final CommentService commentService;
+    private final PostService postService;
+    private final CommentService commentService;
 
 
     @GetMapping("/add-post")
